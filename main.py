@@ -97,21 +97,21 @@ def _init_ex_3():
     s2 = "Иванушка и Иванушка играли вместе."
     s3 = "Здесь нет нужного слова."
     
-    print(f"Текст 1: {s1}")
+    print(f"Текст 1: {get_text_color(s1, COLOR_WARNING)}")
     count1 = count_ivanushka(s1)
-    print(f"Количество 'Иванушка': {count1}")
+    print(f"Количество 'Иванушка': {get_text_color(count1, COLOR_GREEN)}")
     
-    print(f"Текст 2: {s2}")
+    print(f"Текст 2: {get_text_color(s2, COLOR_WARNING)}")
     count2 = count_ivanushka(s2)
-    print(f"Количество 'Иванушка': {count2}")
+    print(f"Количество 'Иванушка': {get_text_color(count2, COLOR_GREEN)}")
     
-    print(f"Текст 3: {s3}")
+    print(f"Текст 3: {get_text_color(s3, COLOR_WARNING)}")
     count3 = count_ivanushka(s3)
-    print(f"Количество 'Иванушка': {count3}")
+    print(f"Количество 'Иванушка': {get_text_color(count3, COLOR_GREEN)}")
     
     max_count = max(count1, count2, count3)
     if max_count == 0:
-        print("Ни в одном тексте нет слова 'Иванушка'")
+        print(get_text_color("Ни в одном тексте нет слова 'Иванушка'", COLOR_FAIL))
     else:
         texts = []
         if count1 == max_count:
