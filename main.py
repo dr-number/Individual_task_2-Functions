@@ -1,4 +1,4 @@
-import math
+from typing import Union
 from functools import reduce
 from random import randint
 import re
@@ -88,7 +88,7 @@ def _init_ex_2():
     total = sum([x if x is not None else 0 for x in [a_last_zero, b_last_zero, c_last_zero]])
     print(f"Сумма индексов: {total}")
 
-def last_zero_index(arr: list) -> int | None:
+def last_zero_index(arr: list) -> Union[int, None]:
     for i in range(len(arr)-1, -1, -1):
         if arr[i] == 0:
             return i
