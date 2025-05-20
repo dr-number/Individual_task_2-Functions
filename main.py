@@ -1,4 +1,7 @@
 import math
+from functools import reduce
+from random import randint
+import re
 
 COLOR_GREEN = '\033[92m'
 COLOR_OKCYAN = '\033[96m'
@@ -19,10 +22,148 @@ _EX_6 = '6'
 
 _ARRAY_EX = [_EX_1, _EX_2, _EX_3, _EX_4, _EX_5, _EX_6]
 
-def get_text_color(text: str, color: str)-> str:
+def get_text_color(text: str, color: str) -> str:
     return f'{color}{text}{_COLOR_ENDC}'
 
+def input_number(text: str, min: int, max: int) -> str:
+    while True:
+        try:
+            num = input(text)
+            if not num.lstrip('-').isdigit():
+                raise ValueError
+            if int(num) < min or int(num) > max:
+                print(get_text_color(f"Число должно быть в диапазоне [{min}, {max}]", COLOR_FAIL))
+                continue
+            return num
+        except ValueError:
+            print(get_text_color("Введите целое число!", COLOR_FAIL))
 
+def _init_ex_1():
+    # Генерация массивов
+    p = [randint(0, 10) for _ in range(10)]
+    q = [randint(0, 10) for _ in range(10)]
+    r = [randint(0, 10) for _ in range(10)]
+    
+    print(f"Массив p: {p}")
+    print(f"Количество 5: {count_fives(p)}")
+    print(f"Массив q: {q}")
+    print(f"Количество 5: {count_fives(q)}")
+    print(f"Массив r: {r}")
+    print(f"Количество 5: {count_fives(r)}")
+
+def count_fives(arr: list) -> int:
+    return arr.count(5)
+
+def _init_ex_2():
+    # Генерация массивов
+    a = [randint(0, 5) for _ in range(20)]
+    b = [randint(0, 5) for _ in range(20)]
+    c = [randint(0, 5) for _ in range(20)]
+    
+    print(f"Массив a: {a}")
+    a_last_zero = last_zero_index(a)
+    print(f"Индекс последнего нуля: {a_last_zero}")
+    
+    print(f"Массив b: {b}")
+    b_last_zero = last_zero_index(b)
+    print(f"Индекс последнего нуля: {b_last_zero}")
+    
+    print(f"Массив c: {c}")
+    c_last_zero = last_zero_index(c)
+    print(f"Индекс последнего нуля: {c_last_zero}")
+    
+    total = sum([x if x is not None else 0 for x in [a_last_zero, b_last_zero, c_last_zero]])
+    print(f"Сумма индексов: {total}")
+
+def last_zero_index(arr: list) -> int | None:
+    for i in range(len(arr)-1, -1, -1):
+        if arr[i] == 0:
+            return i
+    return None
+
+def _init_ex_3():
+    s1 = "Иванушка пошел за водой. Иванушка встретил медведя."
+    s2 = "Иванушка и Иванушка играли вместе."
+    s3 = "Здесь нет нужного слова."
+    
+    print(f"Текст 1: {s1}")
+    count1 = count_ivanushka(s1)
+    print(f"Количество 'Иванушка': {count1}")
+    
+    print(f"Текст 2: {s2}")
+    count2 = count_ivanushka(s2)
+    print(f"Количество 'Иванушка': {count2}")
+    
+    print(f"Текст 3: {s3}")
+    count3 = count_ivanushka(s3)
+    print(f"Количество 'Иванушка': {count3}")
+    
+    max_count = max(count1, count2, count3)
+    if max_count == 0:
+        print("Ни в одном тексте нет слова 'Иванушка'")
+    else:
+        texts = []
+        if count1 == max_count:
+            texts.append("1")
+        if count2 == max_count:
+            texts.append("2")
+        if count3 == max_count:
+            texts.append("3")
+        print(f"Наибольшее количество 'Иванушка' в тексте(ах): {', '.join(texts)}")
+
+def count_ivanushka(text: str) -> int:
+    return len(re.findall(r'\bИванушка\b', text))
+
+def _init_ex_4():
+    n = int(input_number("Введите N: ", min=1, max=20))
+    m_values = []
+    for i in range(5):
+        m = int(input_number(f"Введите M{i+1} (0 <= M <= {n}): ", min=0, max=n))
+        m_values.append(m)
+    
+    for m in m_values:
+        global _recursion_count
+        _recursion_count = 0
+        result = combinations(m, n)
+        print(f"C({m},{n}) = {result}, рекурсивных вызовов: {_recursion_count}")
+
+_recursion_count = 0
+
+def combinations(m: int, n: int) -> int:
+    global _recursion_count
+    _recursion_count += 1
+    
+    if m == 0 or m == n:
+        return 1
+    if 0 < m < n:
+        return combinations(m, n-1) + combinations(m-1, n-1)
+    return 0
+
+def _init_ex_5():
+    words1 = ["Hello", "world", "from", "Python"]
+    words2 = ["This", "is", "a", "test"]
+    
+    join_words = lambda words: reduce(lambda x, y: f"{x} {y}", words)
+    
+    print(f"Список 1: {words1}")
+    print(f"Результат: '{join_words(words1)}'")
+    print(f"Список 2: {words2}")
+    print(f"Результат: '{join_words(words2)}'")
+
+def _init_ex_6():
+    separator = input("Введите разделитель: ")
+    strings = []
+    while True:
+        s = input("Введите строку (пустая строка для завершения): ")
+        if not s:
+            break
+        strings.append(s)
+    
+    result = join_strings(separator, *strings)
+    print(f"Результат: {result}")
+
+def join_strings(separator: str, *strings: str) -> str:
+    return separator.join(strings)
 
 def main():
     while True:
