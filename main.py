@@ -25,18 +25,31 @@ _ARRAY_EX = [_EX_1, _EX_2, _EX_3, _EX_4, _EX_5, _EX_6]
 def get_text_color(text: str, color: str) -> str:
     return f'{color}{text}{_COLOR_ENDC}'
 
-def input_number(text: str, min: int, max: int) -> str:
+def is_number(s: str) -> bool:
+    try:
+        float(s)
+        return True
+    except ValueError:
+        return False
+
+def input_number(text: str, default_value: float = None, min: float = None, max: float = None) -> float:
     while True:
-        try:
-            num = input(text)
-            if not num.lstrip('-').isdigit():
-                raise ValueError
-            if int(num) < min or int(num) > max:
-                print(get_text_color(f"Число должно быть в диапазоне [{min}, {max}]", COLOR_FAIL))
-                continue
-            return num
-        except ValueError:
-            print(get_text_color("Введите целое число!", COLOR_FAIL))
+        number = input(f'{get_text_color(text, COLOR_WARNING)} ')
+        if number == '':
+            if default_value is not None:
+                return default_value
+            print(get_text_color("Введите число!", COLOR_FAIL))
+        elif is_number(number):
+            num = float(number)
+            if min is not None and num < min:
+                print(get_text_color(f"Минимально допустимое число - {min}!", COLOR_FAIL))
+            elif max is not None and num > max:
+                print(get_text_color(f"Максимально допустимое число - {max}!", COLOR_FAIL))
+            else:
+                return num
+        else:
+            print(get_text_color(f"\"{number}\" - не число! Повторите ввод!", COLOR_FAIL))
+
 
 def _init_ex_1():
     # Генерация массивов
