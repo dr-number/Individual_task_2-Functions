@@ -67,25 +67,24 @@ def count_fives(arr: list) -> int:
     return arr.count(5)
 
 def _init_ex_2():
-    # Генерация массивов
     a = [randint(0, 5) for _ in range(20)]
     b = [randint(0, 5) for _ in range(20)]
     c = [randint(0, 5) for _ in range(20)]
     
-    print(f"Массив a: {a}")
+    print(f"Массив {get_text_color(f'a: {a}', COLOR_WARNING)}")
     a_last_zero = last_zero_index(a)
-    print(f"Индекс последнего нуля: {a_last_zero}")
+    print(f"Индекс последнего нуля: {get_text_color(a_last_zero, COLOR_GREEN)}")
     
-    print(f"Массив b: {b}")
+    print(f"Массив {get_text_color(f'b: {b}', COLOR_WARNING)}")
     b_last_zero = last_zero_index(b)
-    print(f"Индекс последнего нуля: {b_last_zero}")
+    print(f"Индекс последнего нуля: {get_text_color(b_last_zero, COLOR_GREEN)}")
     
-    print(f"Массив c: {c}")
+    print(f"Массив {get_text_color(f'c: {c}', COLOR_WARNING)}")
     c_last_zero = last_zero_index(c)
-    print(f"Индекс последнего нуля: {c_last_zero}")
+    print(f"Индекс последнего нуля: {get_text_color(c_last_zero, COLOR_GREEN)}")
     
     total = sum([x if x is not None else 0 for x in [a_last_zero, b_last_zero, c_last_zero]])
-    print(f"Сумма индексов: {total}")
+    print(f"\nСумма индексов: {get_text_color(total, COLOR_GREEN)}")
 
 def last_zero_index(arr: list) -> Union[int, None]:
     for i in range(len(arr)-1, -1, -1):
