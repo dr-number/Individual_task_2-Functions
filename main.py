@@ -120,7 +120,7 @@ def _init_ex_3():
             texts.append("2")
         if count3 == max_count:
             texts.append("3")
-        print(f"Наибольшее количество 'Иванушка' в тексте(ах): {', '.join(texts)}")
+        print(f"Наибольшее количество 'Иванушка' в тексте(ах): {get_text_color(', '.join(texts), COLOR_WARNING)}")
 
 def count_ivanushka(text: str) -> int:
     return len(re.findall(r'\bИванушка\b', text))
