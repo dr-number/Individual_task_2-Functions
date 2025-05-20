@@ -57,9 +57,9 @@ def _init_ex_1():
     r = [randint(0, 10) for _ in range(10)]
     
     print(f"Массив {get_text_color(f'p: {p}', COLOR_WARNING)}")
-    print(f"Количество 5: {get_text_color(count_fives(p), COLOR_GREEN)}")
+    print(f"Количество 5: {get_text_color(count_fives(p), COLOR_GREEN)}\n")
     print(f"Массив {get_text_color(f'q: {q}', COLOR_WARNING)}")
-    print(f"Количество 5: {get_text_color(count_fives(q), COLOR_GREEN)}")
+    print(f"Количество 5: {get_text_color(count_fives(q), COLOR_GREEN)}\n")
     print(f"Массив {get_text_color(f'r: {r}', COLOR_WARNING)}")
     print(f"Количество 5: {get_text_color(count_fives(r), COLOR_GREEN)}")
 
