@@ -99,15 +99,15 @@ def _init_ex_3():
     
     print(f"Текст 1: {get_text_color(s1, COLOR_WARNING)}")
     count1 = count_ivanushka(s1)
-    print(f"Количество 'Иванушка': {get_text_color(count1, COLOR_GREEN)}")
+    print(f"Количество 'Иванушка': {get_text_color(count1, COLOR_GREEN)}\n")
     
     print(f"Текст 2: {get_text_color(s2, COLOR_WARNING)}")
     count2 = count_ivanushka(s2)
-    print(f"Количество 'Иванушка': {get_text_color(count2, COLOR_GREEN)}")
+    print(f"Количество 'Иванушка': {get_text_color(count2, COLOR_GREEN)}\n")
     
     print(f"Текст 3: {get_text_color(s3, COLOR_WARNING)}")
     count3 = count_ivanushka(s3)
-    print(f"Количество 'Иванушка': {get_text_color(count3, COLOR_GREEN)}")
+    print(f"Количество 'Иванушка': {get_text_color(count3, COLOR_GREEN)}\n")
     
     max_count = max(count1, count2, count3)
     if max_count == 0:
