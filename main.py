@@ -52,17 +52,16 @@ def input_number(text: str, default_value: float = None, min: float = None, max:
 
 
 def _init_ex_1():
-    # Генерация массивов
     p = [randint(0, 10) for _ in range(10)]
     q = [randint(0, 10) for _ in range(10)]
     r = [randint(0, 10) for _ in range(10)]
     
-    print(f"Массив p: {p}")
-    print(f"Количество 5: {count_fives(p)}")
-    print(f"Массив q: {q}")
-    print(f"Количество 5: {count_fives(q)}")
-    print(f"Массив r: {r}")
-    print(f"Количество 5: {count_fives(r)}")
+    print(f"Массив {get_text_color(f'p: {p}', COLOR_WARNING)}")
+    print(f"Количество 5: {get_text_color(count_fives(p), COLOR_GREEN)}")
+    print(f"Массив {get_text_color(f'q: {q}', COLOR_WARNING)}")
+    print(f"Количество 5: {get_text_color(count_fives(q), COLOR_GREEN)}")
+    print(f"Массив {get_text_color(f'r: {r}', COLOR_WARNING)}")
+    print(f"Количество 5: {get_text_color(count_fives(r), COLOR_GREEN)}")
 
 def count_fives(arr: list) -> int:
     return arr.count(5)
