@@ -63,6 +63,12 @@ n > 0, 0 <= m <= n). Дано число N и пять различных зна
       <img src="https://github.com/dr-number/Individual_task_2-Functions/blob/main/for_read_me/6-join_strings.png">
    </p>
 </figure>
+<figure>
+   <p align="center">Проверка на ошибки допущенные при вводе данных</p>
+   <p align="center">
+      <img src="https://github.com/dr-number/Individual_task_2-Functions/blob/main/for_read_me/6-error-input.png">
+   </p>
+</figure>
 
 # Create venv:
     python3 -m venv venv

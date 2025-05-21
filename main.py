@@ -179,6 +179,8 @@ def _init_ex_6():
                 break
             else:
                 print(get_text_color("Введите минимум две строки!", COLOR_FAIL))
+                continue
+            
         strings.append(s)
     
     print(f"Результат: {get_text_color(join_strings(separator, strings), COLOR_GREEN)}")
