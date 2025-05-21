@@ -133,22 +133,22 @@ def _init_ex_4():
         m_values.append(m)
     
     for m in m_values:
-        global _recursion_count
-        _recursion_count = 0
-        result = combinations(m, n)
-        print(f"C({m},{n}) = {result}, рекурсивных вызовов: {_recursion_count}")
+        counter = RecursionCounter()
+        result = counter.combinations(m, n)
+        print(f"C({m},{n}) = {result}, рекурсивных вызовов: {counter.count}")
 
-_recursion_count = 0
-
-def combinations(m: int, n: int) -> int:
-    global _recursion_count
-    _recursion_count += 1
+class RecursionCounter:
+    def __init__(self):
+        self.count = 0
     
-    if m == 0 or m == n:
-        return 1
-    if 0 < m < n:
-        return combinations(m, n-1) + combinations(m-1, n-1)
-    return 0
+    def combinations(self, m: int, n: int) -> int:
+        self.count += 1
+        
+        if m == 0 or m == n:
+            return 1
+        if 0 < m < n:
+            return self.combinations(m, n-1) + self.combinations(m-1, n-1)
+        return 0
 
 def _init_ex_5():
     words1 = ["Hello", "world", "from", "Python"]
