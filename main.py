@@ -170,8 +170,7 @@ def _init_ex_6():
             break
         strings.append(s)
     
-    result = join_strings(separator, *strings)
-    print(f"Результат: {result}")
+    print(f"Результат: {get_text_color(join_strings(separator, *strings), COLOR_GREEN)}")
 
 def join_strings(separator: str, *strings: str) -> str:
     return separator.join(strings)
