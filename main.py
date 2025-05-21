@@ -50,6 +50,14 @@ def input_number(text: str, default_value: float = None, min: float = None, max:
         else:
             print(get_text_color(f"\"{number}\" - не число! Повторите ввод!", COLOR_FAIL))
 
+def input_string(text: str) -> str:
+    while True:
+        _string = input(f'{get_text_color(text, COLOR_WARNING)} ')
+        if _string == '':
+            print(get_text_color("Текст не должен быть пустым!", COLOR_FAIL))
+        else:
+            return _string
+
 
 def _init_ex_1():
     p = [randint(0, 10) for _ in range(10)]
@@ -162,12 +170,15 @@ def _init_ex_5():
     print(f"Результат: '{get_text_color(join_words(words2), COLOR_GREEN)}'")
 
 def _init_ex_6():
-    separator = input("Введите разделитель: ")
+    separator = input_string("Введите разделитель: ")
     strings = []
     while True:
         s = input("Введите строку (пустая строка для завершения): ")
         if not s:
-            break
+            if len(strings) >= 2:
+                break
+            else:
+                print(get_text_color("Введите минимум две строки!", COLOR_FAIL))
         strings.append(s)
     
     print(f"Результат: {get_text_color(join_strings(separator, strings), COLOR_GREEN)}")
