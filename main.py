@@ -152,14 +152,14 @@ class RecursionCounter:
 
 def _init_ex_5():
     words1 = ["Hello", "world", "from", "Python"]
-    words2 = ["This", "is", "a", "test"]
+    words2 = ["This", "is", "a", "test", "group", "410z"]
     
     join_words = lambda words: reduce(lambda x, y: f"{x} {y}", words)
-    
-    print(f"Список 1: {words1}")
-    print(f"Результат: '{join_words(words1)}'")
-    print(f"Список 2: {words2}")
-    print(f"Результат: '{join_words(words2)}'")
+
+    print(f"Список 1: {get_text_color(words1, COLOR_WARNING)}")
+    print(f"Результат: '{get_text_color(join_words(words1), COLOR_GREEN)}'\n")
+    print(f"Список 2: {get_text_color(words2, COLOR_WARNING)}")
+    print(f"Результат: '{get_text_color(join_words(words2), COLOR_GREEN)}'")
 
 def _init_ex_6():
     separator = input("Введите разделитель: ")
