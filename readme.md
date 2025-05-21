@@ -39,6 +39,12 @@ n > 0, 0 <= m <= n). Дано число N и пять различных зна
       <img src="https://github.com/dr-number/Individual_task_2-Functions/blob/main/for_read_me/4-combinations.png">
    </p>
 </figure>
+<figure>
+   <p align="center">Проверка на ошибки допущенные при вводе данных</p>
+   <p align="center">
+      <img src="https://github.com/dr-number/Individual_task_2-Functions/blob/main/for_read_me/4-error-error-imput.png">
+   </p>
+</figure>
 
 5. Описать lambda-функцию с reduce(), чтобы объединить строки, добавляя
 между ними пробел. В программе создайте 2 списка слов и используя
