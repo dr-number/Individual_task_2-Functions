@@ -20,8 +20,6 @@ _EX_4 = '4'
 _EX_5 = '5'
 _EX_6 = '6'
 
-_ARRAY_EX = [_EX_1, _EX_2, _EX_3, _EX_4, _EX_5, _EX_6]
-
 def get_text_color(text: str, color: str) -> str:
     return f'{color}{text}{_COLOR_ENDC}'
 
@@ -217,16 +215,11 @@ n > 0, 0 <= m <= n). Дано число N и пять различных зна
 количество строк, а затем возвращает объединенную строку с
 использованием переданного разделителя.\n'''
         )
-        select = input('Для выхода введите \'0\'\n')
-
-        if select in _ARRAY_EX:
-            globals()[f'_init_ex_{select}']()
-        elif select == '0':
+        select = str(int(input_number('Для выхода введите \'0\'\n', min=0, max=6)))
+        if select == '0':
             break
         else:
-            print(
-                f'{get_text_color("Введен неверный номер задачи!", COLOR_FAIL)}'
-            )
+            globals()[f'_init_ex_{select}']()
 
         input('Для продолжения нажмите любую клавишу...')
 
