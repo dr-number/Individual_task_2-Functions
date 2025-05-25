@@ -92,6 +92,7 @@ def input_string(text: str) -> str:
 
 
 def _init_ex_1():
+    print(get_text_color(TEXT_TASK_1, COLOR_WARNING))
     p = [randint(0, 10) for _ in range(10)]
     q = [randint(0, 10) for _ in range(10)]
     r = [randint(0, 10) for _ in range(10)]
@@ -107,6 +108,7 @@ def count_fives(arr: list) -> int:
     return arr.count(5)
 
 def _init_ex_2():
+    print(get_text_color(TEXT_TASK_2, COLOR_WARNING))
     a = [randint(0, 5) for _ in range(20)]
     b = [randint(0, 5) for _ in range(20)]
     c = [randint(0, 5) for _ in range(20)]
@@ -133,6 +135,7 @@ def last_zero_index(arr: list) -> Union[int, None]:
     return None
 
 def _init_ex_3():
+    print(get_text_color(TEXT_TASK_3, COLOR_WARNING))
     s1 = "Иванушка пошел за водой. Иванушка встретил медведя."
     s2 = "Иванушка и Иванушка играли вместе."
     s3 = "Здесь нет нужного слова."
@@ -166,6 +169,7 @@ def count_ivanushka(text: str) -> int:
     return len(re.findall(r'\bИванушка\b', text))
 
 def _init_ex_4():
+    print(get_text_color(TEXT_TASK_4, COLOR_WARNING))
     n = int(input_number("Введите N: ", min=1, max=20))
     m_values = []
     for i in range(5):
@@ -191,6 +195,7 @@ class RecursionCounter:
         return 0
 
 def _init_ex_5():
+    print(get_text_color(TEXT_TASK_5, COLOR_WARNING))
     words1 = ["Hello", "world", "from", "Python"]
     words2 = ["This", "is", "a", "test", "group", "410z"]
     
@@ -202,6 +207,7 @@ def _init_ex_5():
     print(f"Результат: '{get_text_color(join_words(words2), COLOR_GREEN)}'")
 
 def _init_ex_6():
+    print(get_text_color(TEXT_TASK_6, COLOR_WARNING))
     separator = input_string("Введите разделитель: ")
     strings = []
     while True:
